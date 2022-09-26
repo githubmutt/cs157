@@ -78,7 +78,7 @@ function getWeather(zipcode) {
      $("#locationName").text(name)
      $("#condition").text(weather)
 
-     icon = "http://openweathermap.org/img/w/" + icon + ".png"
+     icon = "https://openweathermap.org/img/w/" + icon + ".png"
      $("#weatherIcon").attr("src" , icon)
      $("#humidity").text(humidity)
   
