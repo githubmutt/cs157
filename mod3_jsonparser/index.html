@@ -16,7 +16,7 @@
     <!-- Bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>   
 
-    
+
     <div class="jumbotron text-center py-4">
       <h1>Module 3 Lab - JSON Parser</h1>
       <p>Create a JSON parser that accepts JSON text as input consisting of components for hyperlinks (name and url), parses the JSON as an array of objects, loops through it and creates a list in the DOM based on the JSON data.</p>
@@ -43,7 +43,7 @@
    "name": "Amazon",
    "url": "https://www.amazon.com"
 }]</textarea>
-
+        
         <button id="parseJsonBtn" type="button" class="btn btn-primary form-control mt-3">PARSE</button>
         <hr/>
         <h5>HTML Output</h5>
@@ -52,9 +52,6 @@
           <!-- Sample Begin -->
           <li class="list-group-item"><a href="https://www.google.com" target="_blank">Google</a></li>
           <li class="list-group-item"><a href="https://www.amazon.com" target="_blank">Amazon</a></li>
-
-
-          
           <!-- Sample End -->
         </ul>
         <small style="color: red">Remove the sample output above in the HTML before you implement the parser. The sample is just to show you the output of the parser based on the JSON data above.</small>
@@ -71,89 +68,60 @@
       //    b. Make sure to add a target="_blank" attribute to the link so they open up in a new tab
       //    c. Append the newly created <li> to the unordered list <ul> (id: linkList)
 
-      $(document).ready(loader)
-      
-      function gethtml( name, url ){
+
+        $(document).ready(loader)
+
+        function loader() {
 
 
-
-        let newLi = $('<li></li>') 
-        newLi.attr("class", "list-group-item")
-      //  newLi.attr("href", url )
-        newLi.text(name)
-        
-        
-        return newLi
-      }
+//       $("#linkList").empty()
+//        $("#jsonText").val("")
 
 
-      function loader(){
+        }
 
+        $("#parseJsonBtn").on("click", function(){
 
+        let json = $("#jsonText").val()
+        const obj = JSON.parse(json)
+        const len = Object.keys( obj).length
+
+        console.log(json)
+        console.log( obj)
+
+        let name=""
+        let url=""
+        let newLi=""
+        let newLink=""
 
         $("#linkList").empty()
-      $("#jsonText").val("")
+        for(let i =0 ; i<len ; i++){
 
-      
+         name =  obj[i].name
+         url  =  obj[i].url
 
-        let newLi = $("<li></li>")
-        newLi.attr("class", "list-group-item")
-        newLi.text("San Diego")
+         newLi = $("<li></li>")
+         newLi.attr("class","list-group-item")
+
+
+        newLink = $("<a> </a>")
+        newLink.attr("href",url)
+        newLink.text(name)
+        newLi.append( newLink )
+        $("#linkList").append( newLi)
+
+
+
+
+}// end of loader()
+
+
+})
+
         
-        $("#linklist").append(  newLi )
-
-
-
-        //     $(".list-group-item").fadeToggle()
-           $("#parseJsonBtn").on("click" , function(){
-
-              let json = $("#jsonText").val()
-
-              const obj = JSON.parse(json)
-              const len = Object.keys( obj).length
-              let name =  " "
-              let url =  " "
-              
-              console.log(json)
-              console.log( obj)
-
-              let html =""
-              for(let i =0 ; i<len ; i++){
-                name =  obj[i].name 
-                url  =  obj[i].url 
- //               console.log("name:  " + obj[i].name + " url: " + obj[i].url  )
-
-
-//              html = gethtml( name,url)
-//              console.log( html )
-
-                html = $("<li>Sam </li>")
-                html = gethtml( name, url )
-                $("#linklist").append(  "<li> list item </li>")
-
-              }
-
-           })
-
-
-
-      }
 
 
 
     </script>
   </body>
-
-
-  <!--
-
-    [{
-   "name": "Google",
-   "url": "https://www.google.com"
-     },
-    {
-   "name": "Amazon",
-   "url": "https://www.amazon.com"
-    }]
-  -->
 </html>
