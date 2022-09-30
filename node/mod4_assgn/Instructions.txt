@@ -1,0 +1,37 @@
+=================
+LAB DESCRIPTION
+=================
+In this lab, you will use Node to create simple endpoints
+for handling GET requests using the core HTTP module. You
+will use Node to send back plain text responses, responses
+that are based on an included module and JSON responses.
+
+It's important to note that you should NOT get too comfortable
+with creating endpoints using this method as this is what
+the Express module is for. This is the first and last time you
+will create endpoints using this method! This lab is to just get
+you familiar with Node, modules, endpoints and the request/response cycle.
+
+============
+INSTRUCTIONS
+============
+1. Fork this project to your REPL.it account
+
+2. Follow the instructions included as comments beginning on Part 1
+   in the index.js file. After you get Part 1 working, the client
+   index.html page will load and you will be presented with Parts 2-5.
+   Expect to jump from the client (index.html) to the server (index.js)
+   for each part. Start by creating the endpoint handlers first (index.js),
+   test them using a testing tool such as req bin, then add the client
+   code that consumes the particular API. This will significantly
+   reduce your debugging time.
+
+
+==============
+HELP RESOURCES
+==============
+Node - https://ilearn.laccd.edu/courses/202867/pages/module-4-nodejs-reference
+RESTFul API - https://docs.google.com/presentation/d/1WgxJquZuoBUfvq9bSM2PJw2x0sxikejOo3I04i8PZnY/edit?usp=sharing
+JSON - https://ilearn.laccd.edu/courses/202867/pages/module-3-json?module_item_id=5377039
+Ajax - https://ilearn.laccd.edu/courses/202867/pages/module-3-ajax?module_item_id=5377041
+jQuery - https://ilearn.laccd.edu/courses/202867/pages/module-2-introduction-to-jquery
