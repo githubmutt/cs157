@@ -28,7 +28,13 @@
       </p>
 
     </div>
-    <div id="debug" >Debug</div>
+
+    <div class="container jumbotron py-4 px-4">
+    <div id="debug" class="alert alert-primary">
+      Debug
+    </div>
+    </div>
+
     <!-- PART 2 -->
     <div class="container jumbotron py-4 px-4">
       <h2>Part 2</h2>
@@ -51,10 +57,7 @@
         $("#debug").text("debugging ...")
         $("#greetNodeBtn").on("click" , () => { 
 
-          $("#debug").text("clicking  ...")
-
-          alert( "clicked"  )
-          $.ajax(
+        $.ajax(
             {
                     url: "/hello",
                     type:"POST",
@@ -66,21 +69,26 @@
                       $("#debug").text("failure ...")                
                     }
 
-
-            }
-
+            } )
 
 
-
-          )
+//  this has to be JSON format (with JSON header)
 /*
-
           $.getJSON("/hello2", function(result) {
-                     $("#debug").text("clicked")
-                     alert( "clicked"  )
+            $("#debug").text("success: " + result.id + " - " + result.name )
+          }).fail( function(err){
+             console.log(err)
+            $("#debug").text( "failure" )
+
           })
 */
-        })
+
+
+
+
+
+        })// end of on click
+
 
       </script>
     </div>
