@@ -56,7 +56,14 @@ const server = http.createServer(function(req, res) {
             res.end()
 
      }
+     else if( req.url == "/hello2"){
 
+        console.log("hello2")
+        res.writeHead(200 , {"Content-Type" : "application/json"} )
+        res.write("Hello2")
+        res.end()
+
+ }
 
 
   /*  PART 3
@@ -114,10 +121,10 @@ const server = http.createServer(function(req, res) {
     }    
      
     let addr =  new Array()
-    addr.push ( new  OBJr ( "Odell Beckem", "23 Duane", "New York", "NY", 23123) )
-    addr.push ( new  OBJr ( "Wes Jones", "3500 Trump Plaza", "New York", "NY", 23124) )
+    addr.push ( new  OBJr ( "Odell Beckem Jr.", "23 Duane", "New York", "NY", 23123) )
+    addr.push ( new  OBJr ( "Wes Jones", "3500 Golden Plaza", "New York", "NY", 23124) )
     addr.push ( new  OBJr ( "Tyler Rogers", "2 Rengstorff Drive", "San Mateo", "CA", 92323 ) )
-    addr.push ( new  OBJr ( "Vladimir Zelensky", "2d Kyiv Palace", "Kyiev", "UK", "PSA-92323" ) )
+    addr.push ( new  OBJr ( "Joe Zelensky", "2d Palace Road", "Kyiev", "UK", "PSA-92323" ) )
 
     console.table(addr )
 
@@ -125,7 +132,7 @@ const server = http.createServer(function(req, res) {
     let generateRandomInt = function(from,to) {return Math.floor(Math.random() * (to - from + 1)) + from }
     let r = generateRandomInt(0, addr.length - 1)
 
-    res.writeHead( 200, {"Content-Type": "text/json"} )
+    res.writeHead( 200, {"Content-Type": "application/json"} )
     let js = JSON.stringify( addr[r])
     res.write( js )
 

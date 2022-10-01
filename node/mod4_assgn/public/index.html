@@ -28,7 +28,7 @@
       </p>
 
     </div>
-
+    <div id="debug" >Debug</div>
     <!-- PART 2 -->
     <div class="container jumbotron py-4 px-4">
       <h2>Part 2</h2>
@@ -48,7 +48,39 @@
         */
 
         // Part 2 Code Here
+        $("#debug").text("debugging ...")
+        $("#greetNodeBtn").on("click" , () => { 
 
+          $("#debug").text("clicking  ...")
+
+          alert( "clicked"  )
+          $.ajax(
+            {
+                    url: "/hello",
+                    type:"POST",
+                    success: function(result){
+                      $("#debug").text("success ...")  
+                      alert(result)              
+                    },
+                    error: function( result ){
+                      $("#debug").text("failure ...")                
+                    }
+
+
+            }
+
+
+
+
+          )
+/*
+
+          $.getJSON("/hello2", function(result) {
+                     $("#debug").text("clicked")
+                     alert( "clicked"  )
+          })
+*/
+        })
 
       </script>
     </div>
