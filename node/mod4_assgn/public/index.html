@@ -72,7 +72,7 @@
             } )
 
 
-//  this has to be JSON format (with JSON header)
+//  $.getJSON  has to receive JSON format (with JSON header) -- other error occurs
 /*
           $.getJSON("/hello2", function(result) {
             $("#debug").text("success: " + result.id + " - " + result.name )
@@ -119,7 +119,28 @@
         */
 
         // Part 3 Code Here
+        
+        $("#getQuoteBtn").on("click" , () => { 
+          
+            $.ajax({
 
+                    url: "/quote",
+                    type: "GET",
+                    success: function( result ){
+                      $("#quoteBox").text(result)
+
+                    },
+                    error: function( result){
+                      $("#quoteBox").text("fail")
+                      
+                    }
+
+
+
+            })
+
+
+        })
 
       </script>
     </div>
