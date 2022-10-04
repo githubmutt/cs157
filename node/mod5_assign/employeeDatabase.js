@@ -21,7 +21,7 @@ var employeeData = [
 {
   id: 20,
   name: "Maryann Yamazaki",
-  email: "maryann.yamasaki@gmail.com.edu",
+  email: "maryann.yamasaki@gmail.com",
   address: "1770 Minton St. Mountain View, CA 94040",
   phone: "650-364-7777"
 },

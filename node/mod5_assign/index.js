@@ -1,12 +1,13 @@
 const express = require('express');
-const employeeDatabase = require("./employeeDatabase.js");
+//const employeeDatabase = require("./employeeDatabase.js");
+const db = require("./employeeDatabase")
 
 const app = express();
 
 app.use(express.json());
 app.use(express.static('public'));
 
-db = require("./employeeDatabase")
+
 
 /*
   PART 0 - EMPLOYEE DATABASE INFORMATION
@@ -62,8 +63,7 @@ app.get("/api/employees" , (req,res)=>{
 //  res.status(200).send( JSON.stringify(e) )
     res.status(200).send( e )
     res.end
-
-    console.log("employee " + e[0].name)
+    
 })
 
 
@@ -134,16 +134,12 @@ app.patch("/api/employees/:id" , (req,res)=>{
      let _id = parseInt( req.params.id)
      console.log( "_id = " + _id)     
      console.table( req.body)  
-     
-     let _data = req.body
 
-     if( db.updateEmployee(_id, _data  ) != null ){
+     if( db.updateEmployee(_id, req.body  ) != null ){
       res.status(200).send( "success" )
      }else{
       res.status(400).send( "failed" )
     }
-
-
 
 })
 
@@ -201,10 +197,10 @@ app.post("/api/employees" , (req,res) =>{
 
    console.table( req.body)
    if( req.body.name == "" || req.body == ""){
-        res.status(404).send("err")
+        res.status(400).send("err")
    }else{
         db.addEmployee(req.body)  
-        res.status(200).send( "success" )
+        res.status(201).send( "success" )
    }
 
 
